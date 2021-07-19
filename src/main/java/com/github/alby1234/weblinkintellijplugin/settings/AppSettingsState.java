@@ -5,8 +5,8 @@ import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.State;
 import com.intellij.openapi.components.Storage;
 import com.intellij.util.xmlb.XmlSerializerUtil;
-import jdk.internal.jline.internal.Nullable;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 @State(
         name = "com.github.alby1234.weblinkplugin.settings.AppSettingsState",
@@ -14,8 +14,8 @@ import org.jetbrains.annotations.NotNull;
 )
 public class AppSettingsState implements PersistentStateComponent<AppSettingsState> {
 
-    // default to github, for now
-    public String webRepositoryBaseUrl = "https://github.com";
+    public String username = "";
+    public String repoName = "";
 
     public static AppSettingsState getInstance() {
         return ApplicationManager.getApplication().getService(AppSettingsState.class);

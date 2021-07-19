@@ -22,7 +22,7 @@
     </applicationListeners>
     <actions>
         <action id="com.github.alby1234.weblinkplugin.actions.OpenInBrowserAction"
-                class="com.github.alby1234.weblinkintellijplugin.actions.OpenInBrowserAction" text="Open file in git repository"
+                class="com.github.alby1234.weblinkintellijplugin.actions.OpenFileInBrowserAction" text="Open file in git repository"
                 description="Opens the current file in the git repository on your browser">
             <add-to-group group-id="FileMenu" anchor="last"/>
             <keyboard-shortcut keymap="$default" first-keystroke="shift meta W"/>

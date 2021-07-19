@@ -31,19 +31,22 @@ public class AppSettingsConfigurable implements Configurable {
     @Override
     public boolean isModified() {
         AppSettingsState settings = AppSettingsState.getInstance();
-        return !settingsComponent.getBaseUrlText().equals(settings.webRepositoryBaseUrl);
+        return !settingsComponent.getUsername().equals(settings.username)
+                || !settingsComponent.getRepoName().equals(settings.repoName);
     }
 
     @Override
     public void apply() {
         AppSettingsState settings = AppSettingsState.getInstance();
-        settings.webRepositoryBaseUrl = settingsComponent.getBaseUrlText();
+        settings.username = settingsComponent.getUsername();
+        settings.repoName = settingsComponent.getRepoName();
     }
 
     @Override
     public void reset() {
         AppSettingsState settings = AppSettingsState.getInstance();
-        settingsComponent.setBaseUrlText(settings.webRepositoryBaseUrl);
+        settingsComponent.setUsername(settings.username);
+        settingsComponent.setRepoName(settings.repoName);
     }
 
     @Override
