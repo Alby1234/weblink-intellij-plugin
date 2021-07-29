@@ -6,13 +6,13 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 
-public class AppSettingsComponent {
+public class ProjectSettingsComponent {
 
     private final JPanel mainPanel;
     private final JBTextField username = new JBTextField();
     private final JBTextField repoName = new JBTextField();
 
-    public AppSettingsComponent() {
+    public ProjectSettingsComponent() {
         mainPanel = FormBuilder.createFormBuilder()
                 .addLabeledComponent(new JLabel("Enter repository username (github only): "), username, 1, false)
                 .addLabeledComponent(new JLabel("Enter repository name (github only): "), repoName, 1, false)

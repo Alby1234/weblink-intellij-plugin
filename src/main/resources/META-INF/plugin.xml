@@ -10,10 +10,10 @@
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.github.alby1234.weblinkintellijplugin.services.MyApplicationService"/>
         <projectService serviceImplementation="com.github.alby1234.weblinkintellijplugin.services.MyProjectService"/>
-        <applicationService serviceImplementation="com.github.alby1234.weblinkintellijplugin.settings.AppSettingsState" />
-        <applicationConfigurable parentId="tools" instance="com.github.alby1234.weblinkintellijplugin.settings.AppSettingsConfigurable"
+        <projectService serviceImplementation="com.github.alby1234.weblinkintellijplugin.settings.ProjectSettingsState" />
+        <projectConfigurable parentId="tools" instance="com.github.alby1234.weblinkintellijplugin.settings.ProjectSettingsConfigurable"
                                  id="com.github.alby1234.weblinkplugin.settings.AppSettingsConfigurable"
-                                 displayName="Weblink plugin settings"/>
+                                 displayName="Weblink plugin settings" nonDefaultProject="true"/>
     </extensions>
 
     <applicationListeners>

@@ -1,14 +1,20 @@
 package com.github.alby1234.weblinkintellijplugin.settings;
 
 import com.intellij.openapi.options.Configurable;
+import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 
-public class AppSettingsConfigurable implements Configurable {
+public class ProjectSettingsConfigurable implements Configurable {
 
-    private AppSettingsComponent settingsComponent;
+    private ProjectSettingsComponent settingsComponent;
+    private Project project;
+
+    public ProjectSettingsConfigurable(Project project) {
+        this.project = project;
+    }
 
     @Nls(capitalization = Nls.Capitalization.Title)
     @Override
@@ -24,27 +30,27 @@ public class AppSettingsConfigurable implements Configurable {
     @Nullable
     @Override
     public JComponent createComponent() {
-        settingsComponent = new AppSettingsComponent();
+        settingsComponent = new ProjectSettingsComponent();
         return settingsComponent.getPanel();
     }
 
     @Override
     public boolean isModified() {
-        AppSettingsState settings = AppSettingsState.getInstance();
+        ProjectSettingsState settings = ProjectSettingsState.getInstance(project);
         return !settingsComponent.getUsername().equals(settings.username)
                 || !settingsComponent.getRepoName().equals(settings.repoName);
     }
 
     @Override
     public void apply() {
-        AppSettingsState settings = AppSettingsState.getInstance();
+        ProjectSettingsState settings = ProjectSettingsState.getInstance(project);
         settings.username = settingsComponent.getUsername();
         settings.repoName = settingsComponent.getRepoName();
     }
 
     @Override
     public void reset() {
-        AppSettingsState settings = AppSettingsState.getInstance();
+        ProjectSettingsState settings = ProjectSettingsState.getInstance(project);
         settingsComponent.setUsername(settings.username);
         settingsComponent.setRepoName(settings.repoName);
     }

@@ -1,8 +1,7 @@
 package com.github.alby1234.weblinkintellijplugin.actions
 
-import com.github.alby1234.weblinkintellijplugin.clients.GithubClient
 import com.github.alby1234.weblinkintellijplugin.clients.HttpGithubClient
-import com.github.alby1234.weblinkintellijplugin.settings.AppSettingsState
+import com.github.alby1234.weblinkintellijplugin.settings.ProjectSettingsState
 import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -17,8 +16,10 @@ class OpenFileInBrowserAction : AnAction() {
         val fileName = e.getData(CommonDataKeys.VIRTUAL_FILE)?.name ?: ""
         val filePath = relativePath.replace(fileName, "")
 
-        val username = AppSettingsState.getInstance().username
-        val repoName = username + "/" + AppSettingsState.getInstance().repoName
+        val settings = ProjectSettingsState.getInstance(e.project)
+
+        val username = settings.username
+        val repoName = username + "/" + settings.repoName
 
         val githubClient = HttpGithubClient()
 
