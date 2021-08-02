@@ -1,5 +1,12 @@
 # weblink-intellij-plugin
 
+This is weblink. A project I (Albert Lillington) am developing to address some features I would like to see in similar plugins 
+(e.g. copying link to file, copying and opening to specific line(s)).
+
+Starting with Github support but will add more.
+
+---
+
 ![Build](https://github.com/Alby1234/weblink-intellij-plugin/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
